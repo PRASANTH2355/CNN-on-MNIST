@@ -3,17 +3,15 @@ from layer import Layer
 from activation import Activation
 
 
-class Sigmoid(Activation):
-
+class Tanh(Activation):
     def __init__(self):
-        def sigmoid(x):
-            return 1 / (1 + np.exp(-x))
+        def tanh(x):
+            return np.tanh(x)
 
-        def sigmoid_derivative(x):
-            s = sigmoid(x)
-            return s * (1 - s)
+        def tanh_derivative(x):
+            return 1 - np.tanh(x) ** 2
 
-        super().__init__(sigmoid, sigmoid_derivative)
+        super().__init__(tanh, tanh_derivative)
 
 
 class Softmax(Layer):
